@@ -1,11 +1,12 @@
 class LocalitiesController < ApplicationController
-  before_action :set_locality, only: [:show, :edit, :update, :destroy]
+  before_action :set_locality, only: [:edit, :update, :destroy]
 
   def index
     @localities = Locality.all
   end
 
   def show
+    @locality = Locality.find_by(slug: params[:id])
   end
 
   def new

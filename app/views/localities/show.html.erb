@@ -1,29 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @locality.name %>
-</p>
+<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Abbreviation:</strong>
-  <%= @locality.abbreviation %>
-</p>
+<h1><%= @locality.country.name %></h1>
 
-<p>
-  <strong>Slug:</strong>
-  <%= @locality.slug %>
-</p>
+<% if @locality.region %>
+  <h2><%= @locality.region.name %></h2>
+<% end %>
 
-<p>
-  <strong>Region:</strong>
-  <%= @locality.region_id %>
-</p>
+<h3><%= @locality.name %></h3>
 
-<p>
-  <strong>Country:</strong>
-  <%= @locality.country_id %>
-</p>
+<% if false && @locality.people.present? %>
+  <h2>People</h2>
 
-<%= link_to 'Edit', edit_locality_path(@locality) %> |
-<%= link_to 'Back', localities_path %>
+  <ul>
+    <% @locality.people.each do |locality| %>
+      <li><%= link_to locality.name, locality.path %></li>
+    <% end %>
+  </ul>
+<% end %>

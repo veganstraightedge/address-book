@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-
-  resources :localities
-
   root "countries#index"
 
   get "countries/:slug", to: "countries#show", as: :country
+
   resources :countries do
-    resources :regions
+    resources :regions do
+      resources :localities
+    end
+
+    # resources :localities
   end
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
