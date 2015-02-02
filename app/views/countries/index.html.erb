@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Countries</h1>
+
+<ul>
+  <% @countries.each do |country| %>
+    <li>
+      <%= link_to country_path(country.slug) do %>
+        <%= country.name %>
+        <strong>(<%= country.abbreviation %>)</strong>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
