@@ -6,7 +6,7 @@ class CountriesController < ApplicationController
   end
 
   def show
-    @country = Country.find_by(abbreviation: params[:slug].upcase)
+    @country = Country.find_by(abbreviation: params[:id].upcase)
   end
 
   def new
