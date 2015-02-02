@@ -2,3 +2,12 @@
 
 <h1><%= @country.name %></h1>
 
+<% if @country.regions.present? %>
+  <h2>States / Regions</h2>
+  
+  <ul>
+    <% @country.regions.each do |region| %>
+      <li><%= link_to region.name, region.path %></li>
+    <% end %>
+  </ul>
+<% end %>

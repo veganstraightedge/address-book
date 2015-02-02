@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150202050354) do
   create_table "regions", force: :cascade do |t|
     t.string   "name"
     t.string   "abbreviation"
+    t.string   "slug"
     t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
