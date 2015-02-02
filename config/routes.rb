@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :localities
+
   root "countries#index"
 
   get "countries/:slug", to: "countries#show", as: :country

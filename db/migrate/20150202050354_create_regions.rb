@@ -3,7 +3,8 @@ class CreateRegions < ActiveRecord::Migration
     create_table :regions do |t|
       t.string :name, :abbreviation, :slug
       t.references :country
-      t.timestamps
+
+      t.timestamps null: false
     end
 
     usa    = Country.find_by(name: "United States")
@@ -64,7 +65,7 @@ class CreateRegions < ActiveRecord::Migration
     }
 
     states.each do |abbreviation, name|
-      Region.create!(name: name, abbreviation: abbreviation, country_id: usa.id)
+      Region.create!(name: name, abbreviation: abbreviation, country: usa)
     end
 
     provinces = {
@@ -83,7 +84,7 @@ class CreateRegions < ActiveRecord::Migration
     }
 
     provinces.each do |abbreviation, name|
-      Region.create!(name: name, abbreviation: abbreviation, country_id: canada.id)
+      Region.create!(name: name, abbreviation: abbreviation, country: canada)
     end
   end
 

@@ -1,0 +1,37 @@
+<%= form_for(@locality) do |f| %>
+  <% if @locality.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@locality.errors.count, "error") %> prohibited this locality from being saved:</h2>
+
+      <ul>
+      <% @locality.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :abbreviation %><br>
+    <%= f.text_field :abbreviation %>
+  </div>
+  <div class="field">
+    <%= f.label :slug %><br>
+    <%= f.text_field :slug %>
+  </div>
+  <div class="field">
+    <%= f.label :region_id %><br>
+    <%= f.number_field :region_id %>
+  </div>
+  <div class="field">
+    <%= f.label :country_id %><br>
+    <%= f.number_field :country_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

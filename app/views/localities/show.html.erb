@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @locality.name %>
+</p>
+
+<p>
+  <strong>Abbreviation:</strong>
+  <%= @locality.abbreviation %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @locality.slug %>
+</p>
+
+<p>
+  <strong>Region:</strong>
+  <%= @locality.region_id %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @locality.country_id %>
+</p>
+
+<%= link_to 'Edit', edit_locality_path(@locality) %> |
+<%= link_to 'Back', localities_path %>

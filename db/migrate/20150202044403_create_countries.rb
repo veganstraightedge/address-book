@@ -2,7 +2,8 @@ class CreateCountries < ActiveRecord::Migration
   def self.up
     create_table :countries do |t|
       t.string :name, :abbreviation
-      t.timestamps
+
+      t.timestamps null: false
     end
     
     countries = {

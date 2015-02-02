@@ -1,12 +1,16 @@
-class Region < ActiveRecord::Base
+class Locality < ActiveRecord::Base
+  belongs_to :region
   belongs_to :country
-  has_many :localities
 
   before_create :set_slug
   before_update :set_slug
 
   def path
-    "/countries/#{self.country.slug}/regions/#{slug}"
+    if self.region.slug
+      "/countries/#{self.country.slug}/regions/#{self.region.slug}/localities/#{slug}"
+    else
+      "/countries/#{self.country.slug}/localities/#{slug}"
+    end
   end
 
   def set_slug
@@ -24,3 +28,4 @@ class Region < ActiveRecord::Base
       gsub(/-+$/,           blank)
   end
 end
+
